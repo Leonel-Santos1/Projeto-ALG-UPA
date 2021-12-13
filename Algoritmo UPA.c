@@ -6,7 +6,7 @@ int main()
     setlocale(LC_ALL, "portuguese");
 
     char nome_paciente[55], bairro[20], rua[30], sexo[12];
-    int numero_casa, CPF;
+    int CPF, idad;
 
     // Cadastro do paciente
     printf("---------------------Ficha do Paciente--------------------");
@@ -24,8 +24,14 @@ int main()
     printf("Sexo do paciente: ");
     scanf("%s", &sexo);
 
+    printf("Idade do paciente: ");
+    scanf("%i", &idad);
+
     printf("CPF: ");
     scanf("%i", &CPF);
+
+  
+
 
     printf("\n");
     printf("-----------------------------------------------------------\n");
@@ -33,7 +39,7 @@ int main()
     printf("\n");
 
     printf("--------------------Sintomas registrados-------------------");
-    printf("");
+    printf("Corisa \n Resfriado \n Gripe");
     puts("\a");
 
     return 0;
