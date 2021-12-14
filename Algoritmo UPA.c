@@ -1,46 +1,74 @@
 #include <stdio.h>
 #include <locale.h>
-
+#include <string.h>
 int main()
 {
     setlocale(LC_ALL, "portuguese");
 
     char nome_paciente[55], bairro[20], rua[30], sexo[12];
-    int CPF, idad;
+    int CPF, idade, cor, resf, gri, pneu, n_pacientes;
 
     // Cadastro do paciente
-    printf("---------------------Ficha do Paciente--------------------");
+    printf("----------------------------------------------------------");
     printf("\n");
     printf("\n");
-    printf("Nome do paciente: ");
-    fgets(nome_paciente, 55, stdin);
 
-    printf("Nome do Bairro: ");
-    fgets(bairro, 20, stdin);
-
-    printf("Nome da Rua: ");
-    fgets(rua, 30, stdin);
-
-    printf("Sexo do paciente: ");
-    scanf("%s", &sexo);
-
-    printf("Idade do paciente: ");
-    scanf("%i", &idad);
-
-    printf("CPF: ");
-    scanf("%i", &CPF);
-
-  
-
-
-    printf("\n");
-    printf("-----------------------------------------------------------\n");
-
+    printf("Digite a quantidade de paciente a serem registrados: ");
+    scanf("%i", &n_pacientes);
+    getchar();
     printf("\n");
 
-    printf("--------------------Sintomas registrados-------------------");
-    printf("Corisa \n Resfriado \n Gripe");
-    puts("\a");
+    printf("----------------------------------------------------------");
+
+    printf("\n");
+    printf("\n");
+
+    for (int i = 1; i <= n_pacientes; i++)
+    {
+        printf("--------------------Ficha do Paciente: %i------------------", i);
+        printf("\n");
+        printf("\n");
+
+        printf("Nome do paciente: ");
+        fgets(nome_paciente, 55, stdin);
+
+        printf("Nome do Bairro: ");
+        fgets(bairro, 20, stdin);
+
+        printf("Nome da Rua: ");
+        fgets(rua, 30, stdin);
+
+        printf("Sexo do paciente: ");
+        scanf("%s", &sexo);
+
+        printf("Idade do paciente: ");
+        scanf("%i", &idade);
+
+        printf("CPF: ");
+        scanf("%i", &CPF);
+
+        printf("\n");
+        printf("----------------------------------------------------------\n");
+
+        printf("\n");
+
+        printf("--------------------Sintomas registrados------------------\n");
+        printf("Corisa 1-Sim 0-Não: ");
+        scanf("%i", &cor);
+
+        printf("Resfriado 1-Sim 0-Não: ");
+        scanf("%i", &resf);
+
+        printf("Gripe 1-Sim 0-Não: ");
+        scanf("%i", &gri);
+        
+        printf("Pneumonia 1-Sim 0-Não: ");
+        scanf("%i", &pneu);
+
+        getchar();
+        printf("----------------------------------------------------------\n");
+        system("cls");
+    }
 
     return 0;
 }
