@@ -5,7 +5,7 @@ int main()
 {
     setlocale(LC_ALL, "portuguese");
 
-    char nome_paciente[55], bairro[20], rua[30], sexo[12];
+    char nome_paciente[55], bairro[20], rua[30], sexo;
     int CPF, idade, cor, resf, gri, pneu, n_pacientes;
 
     // Cadastro do paciente
@@ -38,8 +38,8 @@ int main()
         printf("Nome da Rua: ");
         fgets(rua, 30, stdin);
 
-        printf("Sexo do paciente: ");
-        scanf("%s", &sexo);
+        printf("Sexo do paciente ( M | F): ");
+        scanf("%c", &sexo);
 
         printf("Idade do paciente: ");
         scanf("%i", &idade);
@@ -53,21 +53,22 @@ int main()
         printf("\n");
 
         printf("--------------------Sintomas registrados------------------\n");
-        printf("Corisa 1-Sim 0-Não: ");
+        printf("              Corisa                  1-Sim 0-Não: ");
         scanf("%i", &cor);
 
-        printf("Resfriado 1-Sim 0-Não: ");
+        printf("             Resfriado                1-Sim 0-Não: ");
         scanf("%i", &resf);
 
-        printf("Gripe 1-Sim 0-Não: ");
+        printf("               Gripe                  1-Sim 0-Não: ");
         scanf("%i", &gri);
-        
-        printf("Pneumonia 1-Sim 0-Não: ");
+
+        printf("             Pneumonia                1-Sim 0-Não: ");
         scanf("%i", &pneu);
 
         getchar();
         printf("----------------------------------------------------------\n");
-        system("cls");
+        printf("\n");
+        // system("cls");
     }
 
     return 0;
