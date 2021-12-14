@@ -1,12 +1,25 @@
 #include <stdio.h>
 #include <locale.h>
-#include <string.h>
+
+int cont(int n_pacientes, int doenca)
+{
+    int contador = 0;
+    for (int i = 0; i < n_pacientes; i++)
+    {
+        if (doenca == 1)
+        {
+            contador++;
+        }
+    }
+    return contador;
+}
+
 int main()
 {
     setlocale(LC_ALL, "portuguese");
 
     char nome_paciente[55], bairro[20], rua[30], sexo;
-    int CPF, idade, cor, resf, gri, pneu, n_pacientes;
+    int CPF, idade, doenca[4], n_pacientes, contador;
 
     // Cadastro do paciente
     printf("----------------------------------------------------------");
@@ -54,22 +67,35 @@ int main()
 
         printf("--------------------Sintomas registrados------------------\n");
         printf("              Corisa                  1-Sim 0-Não: ");
-        scanf("%i", &cor);
+        scanf("%i", &doenca[0]);
 
         printf("             Resfriado                1-Sim 0-Não: ");
-        scanf("%i", &resf);
+        scanf("%i", &doenca[1]);
 
         printf("               Gripe                  1-Sim 0-Não: ");
-        scanf("%i", &gri);
+        scanf("%i", &doenca[2]);
 
         printf("             Pneumonia                1-Sim 0-Não: ");
-        scanf("%i", &pneu);
+        scanf("%i", &doenca[3]);
+
+        contador = cont(n_pacientes, doenca[0]);
 
         getchar();
         printf("----------------------------------------------------------\n");
         printf("\n");
-        // system("cls");
+
+        system("cls");
+
+        if (doenca[0], doenca[1], doenca[2], doenca[3] != 1 && doenca[0], doenca[1], doenca[2], doenca[3] != 0)
+        {
+            printf("----------------------------------------------------------\n");
+            printf("\nValores inválidos foram detectados. Por favor, digite novamente os dados.\n");
+            printf("\n");
+            i = 0;
+        }
     }
+
+    printf("Pessoas com apenas corisa é: %d", contador);
 
     return 0;
 }
