@@ -8,7 +8,6 @@ int main()
     char nome_paciente[55], bairro[20], rua[30], sexo[12];
     int CPF, idade, cor, resf, gri, pneu, n_pacientes;
 
-    // Cadastro do paciente
     printf("----------------------------------------------------------");
     printf("\n");
     printf("\n");
@@ -23,6 +22,8 @@ int main()
     printf("\n");
     printf("\n");
 
+    // Cadastro do paciente
+    
     for (int i = 1; i <= n_pacientes; i++)
     {
         printf("--------------------Ficha do Paciente: %i------------------", i);
@@ -61,7 +62,7 @@ int main()
 
         printf("Gripe 1-Sim 0-Não: ");
         scanf("%i", &gri);
-        
+
         printf("Pneumonia 1-Sim 0-Não: ");
         scanf("%i", &pneu);
 
