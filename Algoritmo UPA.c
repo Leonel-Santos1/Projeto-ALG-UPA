@@ -84,7 +84,7 @@ int main()
 
         // system("cls");
 
-        if (doenca[0] + doenca[1] + doenca[2] + doenca[3] > 4)
+        if ((doenca[0] > 1 || doenca[1] > 1 || doenca[2] > 1 || doenca[3] > 1) && (doenca[0] < 0 || doenca[1] < 0 || doenca[2] || doenca[3]))
         {
             printf("----------------------------------------------------------\n");
             printf("\nValores inválidos foram detectados. Por favor, digite novamente os dados.\n");
