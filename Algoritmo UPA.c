@@ -78,15 +78,13 @@ int main()
         printf("             Pneumonia                1-Sim 0-Não: ");
         scanf("%i", &doenca[3]);
 
-        contador = cont(n_pacientes, doenca[0]);
-
         getchar();
         printf("----------------------------------------------------------\n");
         printf("\n");
 
-        system("cls");
+        // system("cls");
 
-        if (doenca[0], doenca[1], doenca[2], doenca[3] != 1 && doenca[0], doenca[1], doenca[2], doenca[3] != 0)
+        if (doenca[0] + doenca[1] + doenca[2] + doenca[3] > 4)
         {
             printf("----------------------------------------------------------\n");
             printf("\nValores inválidos foram detectados. Por favor, digite novamente os dados.\n");
@@ -95,7 +93,10 @@ int main()
         }
     }
 
-    printf("Pessoas com apenas corisa é: %d", contador);
+    printf("Pessoas com apenas corisa é: %d\n", cont(n_pacientes, doenca[0]));
+    printf("Pessoas com apenas resfriado é: %d\n", cont(n_pacientes, doenca[1]));
+    printf("Pessoas com apenas gripe é: %d\n", cont(n_pacientes, doenca[2]));
+    printf("Pessoas com apenas pneumonia é: %d", cont(n_pacientes, doenca[3]));
 
     return 0;
 }
