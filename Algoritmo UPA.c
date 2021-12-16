@@ -133,7 +133,6 @@ int main()
         // system("cls");
     }
 
-
     printf("Pessoa(as) com APENAS Corisa é: %i\n", contador[0]);
     printf("Pessoa(as) com APENAS Resfriado é: %i\n", contador[1]);
     printf("Pessoa(as) com APENAS Gripe é: %i\n", contador[2]);
