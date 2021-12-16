@@ -54,7 +54,7 @@ for (int i = 1; i <= n_pacientes; i++)
     }
     for (int i = 1; i <= n_pacientes; i++)
     {
-        printf("--------------------Sintomas registrados------------------\n");
+        printf("--------------------Sintomas do paciente: %i------------------\n", i);
         printf("              Corisa                  1-Sim 0-Não: ");
         scanf("%i", &doenca[0]);
 
