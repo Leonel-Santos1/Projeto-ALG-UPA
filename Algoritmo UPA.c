@@ -88,10 +88,10 @@ int main()
         }
     }
 
-    printf("Pessoas com apenas corisa é: %i\n", doenca[0]);
-    printf("Pessoas com apenas resfriado é: %i\n", doenca[1]);
-    printf("Pessoas com apenas gripe é: %i\n", doenca[2]);
-    printf("Pessoas com apenas pneumonia é: %i", doenca[3]);
+    printf("Pessoas com apenas corisa é: %i\n", contador[0]);
+    printf("Pessoas com apenas resfriado é: %i\n", contador[1]);
+    printf("Pessoas com apenas gripe é: %i\n", contador[2]);
+    printf("Pessoas com apenas pneumonia é: %i", contador[3]);
 
     return 0;
 }
