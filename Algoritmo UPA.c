@@ -42,7 +42,7 @@ int main()
         fgets(n.nome, 55, stdin);
 
         printf("Nome do Bairro: ");
-        fgets(b.bairro, 20, stdin);
+        fgets(b.bairro, 25, stdin);
 
         printf("Nome da Rua: ");
         fgets(r.rua, 30, stdin);
