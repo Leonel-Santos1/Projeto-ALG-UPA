@@ -64,28 +64,32 @@ int main()
 
         printf("             Pneumonia                1-Sim 0-Não: ");
         scanf("%i", &doenca[3]);
+        
+        if (doenca[0] == 1 && !(doenca[1] == 1) && !(doenca[2] == 1) && !(doenca[3] == 1))
+        {
+            contador[0] += doenca[0];
+        }
 
-        contador[0] += doenca[0];
+        if (doenca[1] == 1 && !(doenca[0] == 1) && !(doenca[2] == 1) && !(doenca[3] == 1))
+        {
+            contador[1] += doenca[1];
+        }
 
-        contador[1] += doenca[1];
+        if (doenca[2] == 1 && !(doenca[0] == 1) && !(doenca[1] == 1) && !(doenca[3] == 1))
+        {
+            contador[2] += doenca[2];
+        }
 
-        contador[2] += doenca[2];
-
-        contador[3] += doenca[3];
+        if (doenca[3] == 1 && !(doenca[0] == 1) && !(doenca[1] == 1) && !(doenca[2] == 1))
+        {
+            contador[3] += doenca[3];
+        }
 
         getchar();
         printf("----------------------------------------------------------\n");
         printf("\n");
 
         // system("cls");
-
-        if ((doenca[0] > 1 || doenca[1] > 1 || doenca[2] > 1 || doenca[3] > 1) && (doenca[0] < 0 || doenca[1] < 0 || doenca[2] || doenca[3]))
-        {
-            printf("----------------------------------------------------------\n");
-            printf("\nValores inválidos foram detectados. Por favor, digite novamente os dados.\n");
-            printf("\n");
-            i = 0;
-        }
     }
 
     printf("Pessoas com apenas corisa é: %i\n", contador[0]);
