@@ -1,12 +1,22 @@
 #include <stdio.h>
 #include <locale.h>
 
+struct cadastro
+{
+    char nome[55];
+    char bairro[25];
+    char rua[30];
+    char sexo;
+    int idade;
+    float CPF;
+};
+
 int main()
 {
     setlocale(LC_ALL, "portuguese");
 
-    char nome_paciente[55], bairro[20], rua[30], sexo;
-    int CPF, idade, doenca[4], n_pacientes, contador[5] = {0, 0, 0, 0, 0};
+    struct cadastro n, b, r, s, id, c;
+    int doenca[4], n_pacientes, contador[5] = {0, 0, 0, 0, 0};
 
     // Cadastro do paciente
     printf("----------------------------------------------------------");
@@ -22,29 +32,29 @@ int main()
 
     printf("\n");
     printf("\n");
-for (int i = 1; i <= n_pacientes; i++)
+    for (int i = 1; i <= n_pacientes; i++)
     {
-        printf("--------------------Ficha do Paciente: %i------------------", i);
+        printf("------------------Ficha do Paciente: %i-------------------", i);
         printf("\n");
         printf("\n");
 
         printf("Nome do paciente: ");
-        fgets(nome_paciente, 55, stdin);
+        fgets(n.nome, 55, stdin);
 
         printf("Nome do Bairro: ");
-        fgets(bairro, 20, stdin);
+        fgets(b.bairro, 20, stdin);
 
         printf("Nome da Rua: ");
-        fgets(rua, 30, stdin);
+        fgets(r.rua, 30, stdin);
 
         printf("Sexo do paciente ( M | F): ");
-        scanf("%c", &sexo);
+        scanf("%c", &s.sexo);
 
         printf("Idade do paciente: ");
-        scanf("%i", &idade);
+        scanf("%i", &id.idade);
 
         printf("CPF: ");
-        scanf("%i", &CPF);
+        scanf("%f", &c.CPF);
 
         printf("\n");
         printf("----------------------------------------------------------\n");
@@ -123,7 +133,6 @@ for (int i = 1; i <= n_pacientes; i++)
         // system("cls");
     }
 
-    // system("cls")
 
     printf("Pessoa(as) com APENAS Corisa é: %i\n", contador[0]);
     printf("Pessoa(as) com APENAS Resfriado é: %i\n", contador[1]);
