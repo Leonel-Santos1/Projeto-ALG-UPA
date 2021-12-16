@@ -64,7 +64,7 @@ int main()
 
         printf("             Pneumonia                1-Sim 0-Não: ");
         scanf("%i", &doenca[3]);
-        
+
         if (doenca[0] == 1 && !(doenca[1] == 1) && !(doenca[2] == 1) && !(doenca[3] == 1))
         {
             contador[0] += doenca[0];
@@ -92,10 +92,10 @@ int main()
         // system("cls");
     }
 
-    printf("Pessoas com apenas corisa é: %i\n", contador[0]);
-    printf("Pessoas com apenas resfriado é: %i\n", contador[1]);
-    printf("Pessoas com apenas gripe é: %i\n", contador[2]);
-    printf("Pessoas com apenas pneumonia é: %i", contador[3]);
+    printf("Pessoa(as) com APENAS Corisa é: %i\n", contador[0]);
+    printf("Pessoa(as) com APENAS Resfriado é: %i\n", contador[1]);
+    printf("Pessoa(as) com APENAS Gripe é: %i\n", contador[2]);
+    printf("Pessoa(as) com APENAS Pneumonia é: %i", contador[3]);
 
     return 0;
 }
