@@ -6,7 +6,7 @@ int main()
     setlocale(LC_ALL, "portuguese");
 
     char nome_paciente[55], bairro[20], rua[30], sexo;
-    int CPF, idade, doenca[4], n_pacientes, contador[4] = {0, 0, 0, 0};
+    int CPF, idade, doenca[4], n_pacientes, contador[5] = {0, 0, 0, 0, 0};
 
     // Cadastro do paciente
     printf("----------------------------------------------------------");
@@ -22,8 +22,7 @@ int main()
 
     printf("\n");
     printf("\n");
-
-    for (int i = 1; i <= n_pacientes; i++)
+for (int i = 1; i <= n_pacientes; i++)
     {
         printf("--------------------Ficha do Paciente: %i------------------", i);
         printf("\n");
@@ -51,7 +50,10 @@ int main()
         printf("----------------------------------------------------------\n");
 
         printf("\n");
-
+        getchar();
+    }
+    for (int i = 1; i <= n_pacientes; i++)
+    {
         printf("--------------------Sintomas registrados------------------\n");
         printf("              Corisa                  1-Sim 0-Não: ");
         scanf("%i", &doenca[0]);
@@ -85,17 +87,49 @@ int main()
             contador[3] += doenca[3];
         }
 
-        getchar();
+        else if (doenca[0] == 1 && doenca[1] == 1 && doenca[2] == 1 && doenca[3] == 1)
+        {
+            contador[4]++;
+        }
+
+        if (doenca[0] > 1 || doenca[1] > 1 || doenca[2] > 1 || doenca[3] > 1)
+        {
+            printf("----------------------------------------------------------\n");
+            printf("\nValores inválidos foram detectados. Por favor, digite novamente os dados.\n");
+            printf("\n");
+            i = 0;
+            contador[0] = 0;
+            contador[1] = 0;
+            contador[2] = 0;
+            contador[3] = 0;
+            contador[4] = 0;
+        }
+
+        else if (doenca[0] < 0 || doenca[1] < 0 || doenca[2] < 0 || doenca[3] < 0)
+        {
+            printf("----------------------------------------------------------\n");
+            printf("\nValores inválidos foram detectados. Por favor, digite novamente os dados.\n");
+            printf("\n");
+            i = 0;
+            contador[0] = 0;
+            contador[1] = 0;
+            contador[2] = 0;
+            contador[3] = 0;
+            contador[4] = 0;
+        }
+
         printf("----------------------------------------------------------\n");
         printf("\n");
-
         // system("cls");
     }
+
+    // system("cls")
 
     printf("Pessoa(as) com APENAS Corisa é: %i\n", contador[0]);
     printf("Pessoa(as) com APENAS Resfriado é: %i\n", contador[1]);
     printf("Pessoa(as) com APENAS Gripe é: %i\n", contador[2]);
-    printf("Pessoa(as) com APENAS Pneumonia é: %i", contador[3]);
+    printf("Pessoa(as) com APENAS Pneumonia é: %i\n", contador[3]);
+    printf("Pessoa(as) com TODAS as doenças é: %i", contador[4]);
 
     return 0;
 }
