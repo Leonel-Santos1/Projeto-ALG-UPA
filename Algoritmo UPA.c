@@ -3,23 +3,23 @@
 
 struct cadastro
 {
-    char nome[55];
-    char bairro[25];
-    char rua[30];
-    char sexo;
-    int idade;
-    float CPF;
+    char nome[10][55];
+    char bairro[10][25];
+    char rua[10][30];
+    char sexo[10][2];
+    int idade[10];
+    char CPF[10][13];
 };
 
 int main()
 {
     setlocale(LC_ALL, "portuguese");
 
-    struct cadastro n, b, r, s, id, c;
+    struct cadastro n, b, r, se, id, c;
     int doenca[4], n_pacientes, contador[5] = {0, 0, 0, 0, 0};
 
     // Cadastro do paciente
-    printf("----------------------------------------------------------");
+    printf("---------------------------------------------------------");
     printf("\n");
     printf("\n");
 
@@ -28,7 +28,7 @@ int main()
     getchar();
     printf("\n");
 
-    printf("----------------------------------------------------------");
+    printf("---------------------------------------------------------");
 
     printf("\n");
     printf("\n");
@@ -39,32 +39,43 @@ int main()
         printf("\n");
 
         printf("Nome do paciente: ");
-        fgets(n.nome, 55, stdin);
-
-        printf("Nome do Bairro: ");
-        fgets(b.bairro, 25, stdin);
-
-        printf("Nome da Rua: ");
-        fgets(r.rua, 30, stdin);
-
-        printf("Sexo do paciente ( M | F): ");
-        scanf("%c", &s.sexo);
-
-        printf("Idade do paciente: ");
-        scanf("%i", &id.idade);
+        fgets(n.nome[i], 55, stdin);
 
         printf("CPF: ");
-        scanf("%f", &c.CPF);
+        fgets(c.CPF[i], 13, stdin);
+
+        printf("Nome do Bairro: ");
+        fgets(b.bairro[i], 25, stdin);
+
+        printf("Nome da Rua: ");
+        fgets(r.rua[i], 30, stdin);
+
+        printf("Sexo do paciente ( M | F): ");
+        fgets(se.sexo[i], 2, stdin);
+
+        printf("Idade do paciente: ");
+        scanf("%i", &id.idade[i]);
 
         printf("\n");
-        printf("----------------------------------------------------------\n");
+        printf("---------------------------------------------------------\n");
 
         printf("\n");
         getchar();
     }
     for (int i = 1; i <= n_pacientes; i++)
     {
-        printf("--------------------Sintomas do paciente: %i------------------\n", i);
+        printf("----------------Sintomas do paciente: %i------------------\n", i);
+
+        printf("Nome: %s", n.nome[i]);
+        printf("CPF: %s", c.CPF[i]);
+        printf("Bairro: %s", b.bairro[i]);
+        printf("Rua: %s", r.rua[i]);
+        printf("Sexo: %s\n", se.sexo[i]);
+        printf("Idade: %i", id.idade[i]);
+        printf("\n");
+
+        printf("---------------------------------------------------------\n");
+
         printf("              Corisa                  1-Sim 0-Não: ");
         scanf("%i", &doenca[0]);
 
@@ -105,7 +116,8 @@ int main()
         if (doenca[0] > 1 || doenca[1] > 1 || doenca[2] > 1 || doenca[3] > 1)
         {
             printf("----------------------------------------------------------\n");
-            printf("\nValores inválidos foram detectados. Por favor, digite novamente os dados.\n");
+            printf("\n          Valores inválidos foram detectados.           \n");
+            printf("           Por favor, digite novamente os dados.          \n");
             printf("\n");
             i = 0;
             contador[0] = 0;
@@ -128,7 +140,7 @@ int main()
             contador[4] = 0;
         }
 
-        printf("----------------------------------------------------------\n");
+        printf("---------------------------------------------------------\n");
         printf("\n");
         // system("cls");
     }
