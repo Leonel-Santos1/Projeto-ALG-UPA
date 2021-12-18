@@ -110,7 +110,7 @@ int main()
             contador[3] += 1;
         }
 
-        // Combinações das doenças
+        // Combinações duplas das doenças
 
         // 1 doenca[0] = Corisa || 2 doenca[1] = Resfriado || 3 doenca[2] = Gripe || 4 doenca[3] = Pneumonia
 
@@ -145,6 +145,8 @@ int main()
         }
 
         // Combinação triplaS das doenças
+        // 1 doenca[0] = Corisa || 2 doenca[1] = Resfriado || 3 doenca[2] = Gripe || 4 doenca[3] = Pneumonia
+
         if (doenca[0] == 1 && doenca[1] == 1 && doenca[2] == 1 && !(doenca[3] == 1))
         {
             contador[10] += 1;
