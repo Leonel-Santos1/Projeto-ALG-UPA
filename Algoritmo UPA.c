@@ -16,7 +16,7 @@ int main()
     setlocale(LC_ALL, "portuguese");
 
     struct cadastro n, b, r, se, id, c;
-    int doenca[4], n_pacientes, contador[6] = {0, 0, 0, 0, 0, 0};
+    int doenca[4], n_pacientes, contador[15] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
     // Cadastro do paciente
     printf("---------------------------------------------------------");
@@ -50,7 +50,7 @@ int main()
         printf("Nome da Rua: ");
         fgets(r.rua[i], 30, stdin);
 
-        printf("Sexo do paciente ( M | F): ");
+        printf("Sexo do paciente M | F | Outro (Use a sigla): ");
         fgets(se.sexo[i], 2, stdin);
 
         printf("Idade do paciente: ");
@@ -88,6 +88,8 @@ int main()
         printf("Pneumonia                             1-Sim 0-Não: ");
         scanf("%i", &doenca[3]);
 
+        // 1 doenca[0] = Corisa || 2 doenca[1] = Resfriado || 3 doenca[2] = Gripe || 4 doenca[3] = Pneumonia
+
         if (doenca[0] == 1 && !(doenca[1] == 1) && !(doenca[2] == 1) && !(doenca[3] == 1))
         {
             contador[0] += 1;
@@ -108,14 +110,64 @@ int main()
             contador[3] += 1;
         }
 
+        // Combinações das doenças
+
+        // 1 doenca[0] = Corisa || 2 doenca[1] = Resfriado || 3 doenca[2] = Gripe || 4 doenca[3] = Pneumonia
+
         if (doenca[0] == 1 && doenca[1] == 1 && !(doenca[2] == 1) && !(doenca[3] == 1))
         {
             contador[4] += 1;
         }
 
+        if (doenca[0] == 1 && doenca[2] == 1 && !(doenca[1] == 1) && !(doenca[3] == 1))
+        {
+            contador[5] += 1;
+        }
+
+        if (doenca[0] == 1 && doenca[3] == 1 && !(doenca[1] == 1) && !(doenca[2] == 1))
+        {
+            contador[6] += 1;
+        }
+
+        if (doenca[1] == 1 && doenca[2] == 1 && !(doenca[0] == 1) && !(doenca[3] == 1))
+        {
+            contador[7] += 1;
+        }
+
+        if (doenca[1] == 1 && doenca[3] == 1 && !(doenca[2] == 1) && !(doenca[0] == 1))
+        {
+            contador[8] += 1;
+        }
+
+        if (doenca[2] == 1 && doenca[3] == 1 && !(doenca[0] == 1) && !(doenca[1] == 1))
+        {
+            contador[9] += 1;
+        }
+
+        // Combinação triplaS das doenças
+        if (doenca[0] == 1 && doenca[1] == 1 && doenca[2] == 1 && !(doenca[3] == 1))
+        {
+            contador[10] += 1;
+        }
+
+        if (doenca[0] == 1 && doenca[1] == 1 && doenca[3] == 1 && !(doenca[2] == 1))
+        {
+            contador[11] += 1;
+        }
+
+        if (doenca[0] == 1 && doenca[2] == 1 && doenca[3] == 1 && !(doenca[1] == 1))
+        {
+            contador[12] += 1;
+        }
+
+        if (doenca[1] == 1 && doenca[2] == 1 && doenca[3] == 1 && !(doenca[0] == 1))
+        {
+            contador[13] += 1;
+        }
+
         else if (doenca[0] == 1 && doenca[1] == 1 && doenca[2] == 1 && doenca[3] == 1)
         {
-            contador[5]++;
+            contador[14]++;
         }
 
         if (doenca[0] > 1 || doenca[1] > 1 || doenca[2] > 1 || doenca[3] > 1)
@@ -126,27 +178,26 @@ int main()
             printf("           Por favor, digite novamente os dados.          \n");
             printf("\n");
             i = 0;
-            contador[0] = 0;
-            contador[1] = 0;
-            contador[2] = 0;
-            contador[3] = 0;
-            contador[4] = 0;
-            contador[5] = 0;
+
+            for (int n = 0; n < 15; n++)
+            {
+                contador[n] = 0;
+            }
         }
 
         else if (doenca[0] < 0 || doenca[1] < 0 || doenca[2] < 0 || doenca[3] < 0)
         {
             system("cls");
             printf("---------------------------------------------------------\n");
-            printf("\nValores inválidos foram detectados. Por favor, digite novamente os dados.\n");
+            printf("\n          Valores inválidos foram detectados.           \n");
+            printf("           Por favor, digite novamente os dados.          \n");
             printf("\n");
             i = 0;
-            contador[0] = 0;
-            contador[1] = 0;
-            contador[2] = 0;
-            contador[3] = 0;
-            contador[4] = 0;
-            contador[5] = 0;
+
+            for (int n = 0; n < 15; n++)
+            {
+                contador[n] = 0;
+            }
         }
 
         printf("---------------------------------------------------------\n");
@@ -166,7 +217,20 @@ int main()
     printf("-----------------------Combinações-----------------------\n");
     printf("\n");
     printf("Pessoa(as) com CORISA E RESFRIADO é: %i\n", contador[4]);
-    printf("Pessoa(as) com TODAS as doenças é: %i\n", contador[5]);
+    printf("Pessoa(as) com CORISA E GRIPE é: %i\n", contador[5]);
+    printf("Pessoa(as) com CORISA E PNEUMONIA é: %i\n", contador[6]);
+    printf("Pessoa(as) com RESFRIADO E GRIPE é: %i\n", contador[7]);
+    printf("Pessoa(as) com RESFRIADO E PNEUMONIA é: %i\n", contador[8]);
+    printf("Pessoa(as) com GRIPE E PNEUMONIA é: %i\n", contador[9]);
+    printf("\n");
+
+    printf("------------Combinações triplas ou quadrupla(s)-------------\n");
+    printf("\n");
+    printf("Pessoa(as) com CORISA, RESFRIADO E GRIPE é: %i\n", contador[10]);
+    printf("Pessoa(as) com CORISA, RESFRIADO E PNEUMONIA é: %i\n", contador[11]);
+    printf("Pessoa(as) com CORISA, GRIPE E PNEUMONIA é: %i\n", contador[12]);
+    printf("Pessoa(as) com RESFRIADO, GRIPE E PNEUMONIA é: %i\n", contador[13]);
+    printf("Pessoa(as) com TODAS as doenças é: %i\n", contador[14]);
     printf("\n");
     printf("---------------------------------------------------------\n");
 
