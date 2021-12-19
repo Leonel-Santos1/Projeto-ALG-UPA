@@ -280,23 +280,30 @@ int main()
         printf("\n");
         printf("---------------------------------------------------------\n");
         printf("\n");
+        if (num == 0 && num > 1)
+        {
+            break;
+        }
+
         system("cls");
-        
+
         for (int N = 1; N <= num; N++)
         {
-
-            printf("---------------------------------------------------------\n");
-            printf("\n");
-            printf("Digite o número da ficha paciente que deseja: ");
-            scanf("%i", &num2);
-            printf("\n");
-            printf("---------------------------------------------------------\n");
-
-            if (num2 > n_pacientes)
+            do
             {
-                N = 0;
-                system("cls");
-            }
+                printf("---------------------------------------------------------\n");
+                printf("\n");
+                printf("Digite o número da ficha paciente que deseja: ");
+                scanf("%i", &num2);
+                printf("\n");
+                printf("---------------------------------------------------------\n");
+
+                if (num2 > n_pacientes)
+                {
+                    N = 1;
+                    system("cls");
+                }
+            } while (num2 > n_pacientes);
 
             printf("\n");
             printf("Nome: %s", n.nome[num2]);
@@ -306,11 +313,12 @@ int main()
             printf("Sexo: %s", se.sexo[num2]);
             printf("Idade: %i", id.idade[num2]);
             printf("\n");
-
-            printf("Corisa 1-Sim 0-Não: %i\n", exi_sintomas(exi_doenca1[num2]));
-            printf("Resfriado 1-Sim 0-Não: %i\n", exi_sintomas(exi_doenca2[num2]));
-            printf("Gripe 1-Sim 0-Não: %i\n", exi_sintomas(exi_doenca3[num2]));
-            printf("Pneumonia 1-Sim 0-Não: %i\n", exi_sintomas(exi_doenca4[num2]));
+            printf("\n---------------------------------------------------------\n");
+            printf("\n");
+            printf("Corisa                                1-Sim 0-Não: %i\n", exi_sintomas(exi_doenca1[num2]));
+            printf("Resfriado                             1-Sim 0-Não: %i\n", exi_sintomas(exi_doenca2[num2]));
+            printf("Gripe                                 1-Sim 0-Não: %i\n", exi_sintomas(exi_doenca3[num2]));
+            printf("Pneumonia                             1-Sim 0-Não: %i\n", exi_sintomas(exi_doenca4[num2]));
             printf("\n");
             printf("---------------------------------------------------------\n");
             printf("\n");
@@ -328,6 +336,12 @@ int main()
                 N = 0;
                 system("cls");
             }
+
+            if (num3 > 1)
+            {
+                N = 0;
+                system("cls");
+            }
         }
 
         printf("---------------------------------------------------------\n");
@@ -337,7 +351,6 @@ int main()
         printf("\n");
         printf("---------------------------------------------------------\n");
         printf("\n");
-
         system("cls");
 
         if (num4 == 1)
@@ -376,6 +389,7 @@ int main()
             printf("---------------------------------------------------------\n");
             printf("\n");
         }
+
         printf("---------------------------------------------------------\n");
         printf("\n");
         printf("Deseja fazer algumas das funções anteriores 1-Sim 0-Não: ");
@@ -383,14 +397,12 @@ int main()
         printf("\n");
         printf("---------------------------------------------------------\n");
         printf("\n");
+        system("cls");
 
-        if (num5 == 1)
+        if (num5 == 0)
         {
-            num = 0;
-            system("cls");
+            break;
         }
-        num++;
     }
-
     return 0;
 }
