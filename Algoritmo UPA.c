@@ -32,7 +32,8 @@ int main()
     setlocale(LC_ALL, "portuguese");
 
     struct cadastro n, b, r, se, id, c;
-    int doenca[4], exi_doenca1[30], exi_doenca2[30], exi_doenca3[30], exi_doenca4[30], n_pacientes, num, num2, num3;
+    int doenca[4], exi_doenca1[30], exi_doenca2[30], exi_doenca3[30], exi_doenca4[30];
+    int n_pacientes, num = 1, num2, num3, num4, num5;
     int contador[15] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
     // Cadastro do paciente
@@ -269,16 +270,18 @@ int main()
     printf("---------------------------------------------------------\n");
     printf("\n");
 
-    printf("---------------------------------------------------------\n");
-    printf("\n");
-    printf("Deseja exibir a ficha de um paciente: 1-Sim 0-Não: ");
-    scanf("%i", &num);
-    printf("\n");
-    printf("---------------------------------------------------------\n");
-    printf("\n");
-    system("cls");
-    if (num == 1)
+    while (num == 1)
     {
+
+        printf("---------------------------------------------------------\n");
+        printf("\n");
+        printf("Deseja exibir a ficha de um paciente: 1-Sim 0-Não: ");
+        scanf("%i", &num);
+        printf("\n");
+        printf("---------------------------------------------------------\n");
+        printf("\n");
+        system("cls");
+        
         for (int N = 1; N <= num; N++)
         {
 
@@ -291,7 +294,8 @@ int main()
 
             if (num2 > n_pacientes)
             {
-                break;
+                N = 0;
+                system("cls");
             }
 
             printf("\n");
@@ -324,12 +328,69 @@ int main()
                 N = 0;
                 system("cls");
             }
-
-            else if (num3 == 0 && num3 > 1)
-            {
-                break;
-            }
         }
+
+        printf("---------------------------------------------------------\n");
+        printf("\n");
+        printf("Deseja voltar para a lista com o Nº de pessoas: 1-Sim 0-Não: ");
+        scanf("%i", &num4);
+        printf("\n");
+        printf("---------------------------------------------------------\n");
+        printf("\n");
+
+        system("cls");
+
+        if (num4 == 1)
+        {
+            system("cls");
+            printf("-------------------------APENAS--------------------------\n");
+            printf("\n");
+            printf("Pessoa(as) com APENAS Corisa é: %i\n", contador[0]);
+            printf("Pessoa(as) com APENAS Resfriado é: %i\n", contador[1]);
+            printf("Pessoa(as) com APENAS Gripe é: %i\n", contador[2]);
+            printf("Pessoa(as) com APENAS Pneumonia é: %i\n", contador[3]);
+            printf("\n");
+            printf("---------------------------------------------------------\n");
+            printf("\n");
+
+            printf("-----------------------Combinações-----------------------\n");
+            printf("\n");
+            printf("Pessoa(as) com CORISA E RESFRIADO é: %i\n", contador[4]);
+            printf("Pessoa(as) com CORISA E GRIPE é: %i\n", contador[5]);
+            printf("Pessoa(as) com CORISA E PNEUMONIA é: %i\n", contador[6]);
+            printf("Pessoa(as) com RESFRIADO E GRIPE é: %i\n", contador[7]);
+            printf("Pessoa(as) com RESFRIADO E PNEUMONIA é: %i\n", contador[8]);
+            printf("Pessoa(as) com GRIPE E PNEUMONIA é: %i\n", contador[9]);
+            printf("\n");
+            printf("---------------------------------------------------------\n");
+            printf("\n");
+
+            printf("-----------Combinações triplas ou quadrupla(s)-----------\n");
+            printf("\n");
+            printf("Pessoa(as) com CORISA, RESFRIADO E GRIPE é: %i\n", contador[10]);
+            printf("Pessoa(as) com CORISA, RESFRIADO E PNEUMONIA é: %i\n", contador[11]);
+            printf("Pessoa(as) com CORISA, GRIPE E PNEUMONIA é: %i\n", contador[12]);
+            printf("Pessoa(as) com RESFRIADO, GRIPE E PNEUMONIA é: %i\n", contador[13]);
+            printf("Pessoa(as) com TODAS as doenças é: %i\n", contador[14]);
+            printf("\n");
+            printf("---------------------------------------------------------\n");
+            printf("\n");
+        }
+        printf("---------------------------------------------------------\n");
+        printf("\n");
+        printf("Deseja fazer algumas das funções anteriores 1-Sim 0-Não: ");
+        scanf("%i", &num5);
+        printf("\n");
+        printf("---------------------------------------------------------\n");
+        printf("\n");
+
+        if (num5 == 1)
+        {
+            num = 0;
+            system("cls");
+        }
+        num++;
     }
+
     return 0;
 }
