@@ -29,6 +29,7 @@ struct cadastro
 
 int main()
 {
+    system("cls");
     setlocale(LC_ALL, "portuguese");
 
     struct cadastro n, b, r, se, id, c;
@@ -336,7 +337,6 @@ int main()
                 N = 0;
                 system("cls");
             }
-
         }
 
         printf("---------------------------------------------------------\n");
